@@ -70,7 +70,7 @@ public class Procedure {
                     total_success++;
                 running_average = (float) total_success / k;
                 System.out.println("Run " + k + " Toss " + toss + " Running Avg. " + running_average);
-                printWriter.println(k + "\t" + running_average + "\t" + running_average);
+                printWriter.println(k + "\t" + toss + "\t" + running_average);
             }
         }
     }
