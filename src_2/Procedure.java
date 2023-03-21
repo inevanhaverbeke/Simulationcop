@@ -75,7 +75,7 @@ public class Procedure {
                         }
                 }
                 total_nr_fruits = 0;
-                for (i1 = 1; i1 <= nr_fruits; i1++)
+                for (i1 = 0; i1 < nr_fruits; i1++)
                 {
                     total_nr_fruits += fruits[i1];
                 }
