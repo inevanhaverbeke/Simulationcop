@@ -1,5 +1,3 @@
-package Assignment2;
-
 import javax.management.relation.RelationNotFoundException;
 import java.io.File;
 import java.io.FileWriter;
@@ -34,9 +32,6 @@ public class Procedure {
         int total_success = 0;
         double running_average;
 
-        Random r = new Random();
-
-
         for(int k = 1; k <= K; k++)
         {
             int success = 0;
@@ -50,7 +45,8 @@ public class Procedure {
                 fruits[i1-1] = 3;
             }
             do {
-                int i2 = Distributions.Uniform_distribution(0,5,r);
+                Random r = new Random();
+                int i2 = r.nextInt(6);
                 if (i2 < nr_fruits) // 0,1,2,3 is een kleur
                 {
                     if (fruits[i2] > 0)
@@ -60,20 +56,19 @@ public class Procedure {
                     else{
                         int i3;
                         do{
-                            i3 = Distributions.Uniform_distribution(0,nr_fruits-1,r);
+                            i3 = r.nextInt(4);
                         }
                         while (fruits[i3] == 0); // smijten met dobbelsteen tot volle boom
                         fruits[i3]--;
                     }
                 }
-                else if(i2 >= nr_fruits) // 4,5 is raaf
+                else {
+                    position_raven++;
+                    if (fruits[position_raven-1] > 0)
                     {
-                        position_raven++;
-                        if (fruits[position_raven-1] > 0)
-                        {
-                                fruits[position_raven-1]--;
-                        }
-                }
+                            fruits[position_raven-1]--;
+                    }
+            }
                 total_nr_fruits = 0;
                 for (i1 = 0; i1 < nr_fruits; i1++)
                 {
@@ -81,7 +76,7 @@ public class Procedure {
                 }
             } while ((total_nr_fruits > 0) && (position_raven < 5));
 
-            if (total_nr_fruits == 0) // kinderen winnen
+            if (position_raven < 5) // kinderen winnen
             {
                 success = 1;
                 total_success++;
