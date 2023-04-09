@@ -11,7 +11,7 @@ public class Main {
 
         myPersonnel.initialize_random_number_generator(200);  //every time you run with the same argument the same random numbers
         //myPersonnel.initialize_random_number_generator();  // every time you run different random numbers
-
+//
         // seed initialisation => fixed/variable
         // ((i3+1)*K-run); //? nog voor kijken!
         // Ensure you each time use a different seed to get IID replications
