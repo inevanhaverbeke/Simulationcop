@@ -1,5 +1,4 @@
-package Assignment3;
-
+package Assignment_3;
 /**
  *
  * @author Ine Vanhaverbeke

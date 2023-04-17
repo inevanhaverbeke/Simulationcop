@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignment_3;
 
 import java.io.FileWriter;
 import java.io.IOException;
