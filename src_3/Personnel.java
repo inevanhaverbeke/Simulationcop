@@ -133,7 +133,7 @@ public class Personnel {
     long start_time, inter_time, project_start_time; //Time measurements to compute run times
 
     public void procedure() {
-        int L = 1;
+        int L = 2;
         for (int i3 = 0; i3 < L; i3++) { // Count number of runs
 
             int K = 1;
@@ -146,7 +146,12 @@ public class Personnel {
         try {
             FileWriter RadiologyAvgRunsFile = new FileWriter("Radiology_avg_runs.txt");
             // PRINT HERE OUTPUT of Multiple runs
-            // RadiologyAvgRunsFile.write("This is an example of how you write output to the file");
+            RadiologyAvgRunsFile.write("Number\tObservation\tRunning Average\n");
+            for (i1 = 0; i1 < N; i1++) {
+                mean_system_time[run] += time_system[run][order_out[i1]];
+                j1 = mean_system_time[run] / (i1 + 1);
+                RadiologyAvgRunsFile.write(String.format("%d\t%f\t%f\n", i1, time_system[run][order_out[i1]], j1));
+            }
 
             RadiologyAvgRunsFile.close();
         } catch (IOException e) {
